@@ -1,0 +1,19 @@
+{
+  "name": "macaw-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "macaw": "./bin/macaw.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "commander": "^2.16.0",
+    "download-git-repo": "^1.0.2",
+    "glob": "^7.1.2"
+  }
+}
