@@ -1,1 +1,25 @@
-aa
+参考地址：
+https://mp.weixin.qq.com/s/MvP3GelJzbnY6ct-5u9bZA
+
+注解：
+在一个空目录下，找到macaw.js的相对路径，那么就可以在当前路径下创建这个项目。
+但是在item2下操作的时候总是解析不了ES6的扩展运算符...
+在VScode下是可以的, 其实是自动忽略了扩展运算符。
+
+```
+bosszhang@bogon test $ node ../zzs-cli/test-cli/bin/macaw.js init test
+process.argv:  [ '/usr/local/bin/node',
+  '/Users/bosszhang/Documents/workspace_temp/zzs-cli/test-cli/bin/macaw-init.js',
+  'test' ]
+program.args:  undefined
+program.args:  [ 'test' ]
+list:  []
+process.cwd():  /Users/bosszhang/Documents/workspace_temp/test
+rootName:  test
+path.join(, rootName):  test
+? 当前目录为空，且目录名称和项目名称相同，是否直接在当前目录下创建新项目？ No
+answer:  { buildInCurrent: false }
+target1:  test
+target2:  test/.download-temp
+Error: 'git clone' failed with status 128
+```
