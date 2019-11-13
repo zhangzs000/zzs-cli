@@ -86,14 +86,14 @@ module.exports = async (projectName)=>{
      // 让用户填写信息
      await new Promise((resolve, reject)=>{
         metalsmith(__dirname) // 默认src下
-        .source(result)
-        .destination(path.resolve(projectName))
+        .source(result) // 遍历模版
+        .destination(path.resolve(projectName)) // 模版渲染的地点
         .use(async(files, metal, done)=>{
           const args = require(path.join(result, 'ask.js'));
-          const obj = await inquirer.prompt(args);
+          const obj = await inquirer.prompt(args); // 让用户输入
           //将obj传递到metal
           const meta = metal.metadata();
-          Object.assign(meta, obj);
+          Object.assign(meta, obj); //  输入的结果赋值给meta
           delete files['ask.js'];
           console.log('obj: ',obj)
           done();
@@ -106,7 +106,7 @@ module.exports = async (projectName)=>{
               let content = files[file].contents.toString(); // 文件内容
               if(content.includes('<%')){
                 content = await render(content, obj);
-                files[file].content = Buffer.from(content)
+                files[file].contents = Buffer.from(content)
               }
             }
           })
